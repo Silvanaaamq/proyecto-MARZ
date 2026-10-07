@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARZ - Soporte (HU01-HU04)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- HU01: Login -->
+  <section id="login-section" class="card">
+    <h1>Iniciar sesión</h1>
+    <p class="muted">acceso solo a funciones de tu rol.</p>
+    <form id="login-form">
+      <label>Email
+        <input type="email" id="login-email" required autocomplete="username">
+      </label>
+      <label>Contraseña
+        <input type="password" id="login-pass" required autocomplete="current-password">
+      </label>
+      <button type="submit">Entrar</button>
+      <p id="login-error" class="error"></p>
+    </form>
+    <details>
+      <summary>Usuarios de prueba</summary>
+      <ul>
+        <li>Solicitante: <code>ana@sistema.com / 1234</code></li>
+        <li>Solicitante: <code>luis@sistema.com / 1234</code></li>
+        <li>Coordinador: <code>coord@sistema.com / 1234</code></li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- App (sesión iniciada) -->
+  <section id="app-section" class="hidden">
+    <header class="topbar">
+      <div>
+        <strong id="user-name"></strong>
+        <span id="user-role" class="badge"></span>
+      </div>
+      <button id="btn-logout">Cerrar sesión (HU01)</button>
+    </header>
+
+    <!-- Vista SOLICITANTE: HU02 + HU03 -->
+    <div id="view-solicitante" class="hidden">
+      <div class="card">
+        <h2>HU02 · Crear solicitud</h2>
+        <form id="req-form">
+          <label>Título* <input id="req-titulo" required maxlength="100"></label>
+          <label>Descripción* <textarea id="req-desc" required rows="3"></textarea></label>
+          <label>Categoría*
+            <select id="req-cat" required>
+              <option value="">-- elegir --</option>
+              <option>Hardware</option>
+              <option>Software</option>
+              <option>Red</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <button type="submit">Crear solicitud</button>
+          <p id="req-error" class="error"></p>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>HU03 · Mis solicitudes</h2>
+        <ul id="my-list" class="list"></ul>
+        <div id="my-detail" class="detail hidden"></div>
+      </div>
+    </div>
+
+    <!-- Vista COORDINADOR: HU04 -->
+    <div id="view-coordinador" class="hidden">
+      <div class="card">
+        <h2>HU04 · Priorizar solicitudes</h2>
+        <div class="filters">
+          <label>Ordenar por
+            <select id="sort-by">
+              <option value="prioridad">Prioridad</option>
+              <option value="estado">Estado</option>
+              <option value="fecha">Fecha</option>
+            </select>
+          </label>
+        </div>
+        <ul id="all-list" class="list"></ul>
+        <div id="coord-detail" class="detail hidden"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
