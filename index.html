@@ -36,31 +36,49 @@
 <button onclick="crear()">Crear</button>
 <p id="msg2"></p>
 <h2>Mis solicitudes</h2>
-<input id="q" placeholder="buscar por texto..." oninput="verMias()"><br><br>
+<input id="q" placeholder="buscar por texto..." oninput="verMias()"><br>
+<select id="fs-est" onchange="verMias()"><option value="">estado...</option><option>Nuevo</option><option>En Revisión</option><option>En Atención</option><option>Resuelto</option><option>Cerrado</option></select>
+<select id="fs-prio" onchange="verMias()"><option value="">prioridad...</option><option>Alta</option><option>Media</option><option>Baja</option></select>
+<select id="fs-cat" onchange="verMias()"><option value="">categoría...</option><option>Hardware</option><option>Software</option><option>Red</option><option>Otro</option></select><br><br>
 <ul id="mis"></ul>
 </div>
 
 <!-- COORDINADOR -->
 <div id="v-coor" style="display:none">
 <h2>Priorizar y asignar solicitudes</h2>
-<p>Orden: <select id="orden" onchange="verTodas(this.value)">
+<input id="tq" placeholder="buscar por texto..." oninput="verTodas()"><br>
+<select id="tc-est" onchange="verTodas()"><option value="">estado...</option><option>Nuevo</option><option>En Revisión</option><option>En Atención</option><option>Resuelto</option><option>Cerrado</option></select>
+<select id="tc-prio" onchange="verTodas()"><option value="">prioridad...</option><option>Alta</option><option>Media</option><option>Baja</option></select>
+<select id="tc-cat" onchange="verTodas()"><option value="">categoría...</option><option>Hardware</option><option>Software</option><option>Red</option><option>Otro</option></select>
+<p>Orden: <select id="orden" onchange="verTodas()">
 <option value="prioridad">Prioridad</option>
 <option value="estado">Estado</option>
 <option value="fecha">Fecha</option>
 </select></p>
 <p id="msg-coor"></p>
 <ul id="todas"></ul>
+<h2>Indicadores</h2>
+<div id="indic"></div>
+<button onclick="exportarCSV()">Exportar CSV</button>
 </div>
 
 <!-- AGENTE -->
 <div id="v-age" style="display:none">
 <h2>Mis asignadas</h2>
+<input id="aq" placeholder="buscar por texto..." oninput="verAsignadas()"><br>
+<select id="af-est" onchange="verAsignadas()"><option value="">estado...</option><option>Nuevo</option><option>En Revisión</option><option>En Atención</option><option>Resuelto</option><option>Cerrado</option></select>
+<select id="af-prio" onchange="verAsignadas()"><option value="">prioridad...</option><option>Alta</option><option>Media</option><option>Baja</option></select>
+<select id="af-cat" onchange="verAsignadas()"><option value="">categoría...</option><option>Hardware</option><option>Software</option><option>Red</option><option>Otro</option></select><br><br>
 <ul id="asig"></ul>
 </div>
 
 <!-- AUDITOR -->
 <div id="v-audi" style="display:none">
 <h2>Historial (solo lectura)</h2>
+<input id="hq" placeholder="buscar por texto..." oninput="verHistorial()"><br>
+<select id="hf-est" onchange="verHistorial()"><option value="">estado...</option><option>Nuevo</option><option>En Revisión</option><option>En Atención</option><option>Resuelto</option><option>Cerrado</option></select>
+<select id="hf-prio" onchange="verHistorial()"><option value="">prioridad...</option><option>Alta</option><option>Media</option><option>Baja</option></select>
+<select id="hf-cat" onchange="verHistorial()"><option value="">categoría...</option><option>Hardware</option><option>Software</option><option>Red</option><option>Otro</option></select><br><br>
 <ul id="hist"></ul>
 </div>
 
